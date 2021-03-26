@@ -21,6 +21,11 @@ app.get('/', (req, res) => {
   res.render('index', {title: 'URL Shortener'})
 })
 
+app.get('/shorturl', (req, res) => {
+  let input = req.query.text;
+  res.json( {result: input.toUpperCase()})
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
